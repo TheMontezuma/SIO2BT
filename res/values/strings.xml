@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SIO2BT</string>
+
+    <!--  MainActivity -->
+    <string name="bt_not_enabled_leaving">Bluetooth is not enabled. Leaving SIO2BT.</string>
+    <string name="title_connecting">Connecting</string>
+    <string name="title_connected_to">Connected:</string>
+    <string name="title_not_connected">Not connected</string>
+
+    <!--  DeviceListActivity -->
+    <string name="scanning">Scanning for devices</string>
+    <string name="select_device">Select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+    
+    <!-- BluetoothService  -->
+    <string name="unable_to_connect">Unable to connect device</string>
+    <string name="device_connection_lost">Device connection was lost</string>
+
+    <!-- Options Menu -->
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="search">Search</string>
+    <string name="favourites">Favourites</string>
+    <string name="exit">Exit</string>
+    
+    <!--  FileSelector -->
+    <string name="select_file">Select a disk image</string>
+    <string name="default_folder">Default storage location</string>
+    <string name="folder">Folder</string>
+    <string name="parentDirectory">Up</string>
+    <string name="notMounted">File could not be mounted</string>
+    
+    <!--  LoaderSelection -->
+    <string name="select_loader">Loader at:</string>
+
+    <!--  ReadWriteSelection -->
+    <string name="select_ReadWrite">Write protection:</string>
+
+    <!--  Settings -->
+    <string name="preferences">Settings</string>
+    <string name="write_delay">Write delay</string>
+    <string name="write_delay_summary">Increase delay to improve communication stability</string>
+    <string name="blinking">SIO Animation</string>
+    <string name="blinking_summary">Deactivate the animation to decrease the CPU load</string>
+    <string name="smart">Smart</string>
+    <string name="smart_summary">Activate Smart Device (Time, URL, etc.)</string>
+    <string name="networking">Network</string>
+    <string name="networking_summary">Activate SIO Networking Device</string>
+    <string name="net_open_timeout">OPEN Timeout</string>
+    <string name="net_open_timeout_summary">Timeout for network OPEN operation</string>
+    <string name="net_read_write_timeout">READ/WRITE Timeout</string>
+    <string name="net_read_write_timeout_summary">Timeout for network READ/WRITE operation</string>
+    
+    <!-- Create Disk -->
+    <string name="create_disk">Create new disk</string>
+    <string name="disk_name">Disk name</string>
+    <string name="disk_created">created</string>
+    <string name="disk_not_created">New disk could not be created</string>
+    
+</resources>

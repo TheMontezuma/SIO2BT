@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  MainActivity -->
+    <string name="bt_not_enabled_leaving">Bluetooth jest nieaktywny. Sio2Bt kończy pracę.</string>
+    <string name="title_connecting">Łączenie</string>
+    <string name="title_connected_to">Połączono:</string>
+    <string name="title_not_connected">Brak połączenia</string>
+
+    <!--  DeviceListActivity -->
+    <string name="scanning">Szukanie urządzeń</string>
+    <string name="select_device">Wybierz urządzenie</string>
+    <string name="none_paired">Brak znanych urządzeń</string>
+    <string name="none_found">Brak urządzeń</string>
+    <string name="title_paired_devices">Znane urządzenia</string>
+    <string name="title_other_devices">Inne dostępne urządzenia</string>
+    <string name="button_scan">Szukaj urządzeń</string>
+
+    <!-- BluetoothService  -->
+    <string name="unable_to_connect">Nie udało się połączyć z urządzeniem</string>
+    <string name="device_connection_lost">Połączenie zostało przerwane</string>
+    
+    <!-- Options Menu -->
+    <string name="connect">Połącz</string>
+    <string name="disconnect">Rozłącz</string>
+    <string name="search">Wyszukaj</string>
+    <string name="favourites">Ulubione</string>
+    <string name="exit">Wyjdź</string>
+    
+    <!--  FileSelector -->
+    <string name="select_file">Wybierz obraz dyskietki</string>
+    <string name="default_folder">Domyślna lokalizacja</string>
+    <string name="folder">Katalog</string>
+    <string name="parentDirectory">W górę</string>
+    <string name="notMounted">Nie udało się zamontować pliku</string>
+
+    <!--  LoaderSelection -->
+    <string name="select_loader">Loader pod:</string>
+    
+    <!--  ReadWriteSelection -->
+    <string name="select_ReadWrite">Ochrona przed zapisem:</string>
+
+    <!--  Settings -->
+    <string name="preferences">Ustawienia</string>
+    <string name="write_delay">Opóźnienie zapisu</string>
+    <string name="write_delay_summary">Zwiększ opóźnienie w celu poprawienia stabilności transmisji</string>
+    <string name="blinking">Animacja SIO</string>
+    <string name="blinking_summary">Wyłącz animację, aby zmniejszyć użycie procesora</string>
+    <string name="smart">Smart</string>
+    <string name="smart_summary">Uaktywnij urządzenie Smart (zegar, URL, itp.)</string>
+    <string name="networking">Sieć</string>
+    <string name="networking_summary">Uaktywnij urządzenie sieciowe SIO</string>
+    <string name="net_open_timeout">OPEN Timeout</string>
+    <string name="net_open_timeout_summary">Czas oczekiwania na operację sieciową OPEN</string>
+    <string name="net_read_write_timeout">READ/WRITE Timeout</string>
+    <string name="net_read_write_timeout_summary">Czas oczekiwania na operacje sieciowe READ/WRITE</string>
+    
+    <!-- Create Disk -->
+    <string name="create_disk">Nowa dyskietka</string>
+    <string name="disk_name">Nazwa dyskietki</string>
+    <string name="disk_created">utworzona</string>
+    <string name="disk_not_created">Nie udało się utworzyć nowej dyskietki</string>
+    
+</resources>

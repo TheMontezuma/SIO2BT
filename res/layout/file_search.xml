@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical" 
+  android:layout_height="fill_parent" 
+  android:layout_width="fill_parent"
+  xmlns:tools="http://schemas.android.com/tools">
+  
+ <EditText
+     android:id="@+id/FileSearchBox"
+     android:layout_height="wrap_content"
+     android:layout_width="fill_parent"
+     android:inputType="text"/>
+  	
+<ListView 
+    android:id="@+id/FileListView"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    />
+	
+</LinearLayout>

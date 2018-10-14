@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<LinearLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:paddingTop="4dp"
+	    android:paddingLeft="4dp"
+		android:paddingRight="4dp"
+	    xmlns:tools="http://schemas.android.com/tools">
+
+	    <ImageButton
+	        android:id="@+id/button_disk"
+	        android:layout_width="48dp"
+	        android:layout_height="48dp"
+	        android:background="@drawable/disk"
+	        tools:ignore="ContentDescription" />
+
+  		<LinearLayout
+  		    android:id="@+id/description_disk"
+  			android:layout_height="wrap_content" 
+  			android:orientation="vertical"
+  			android:layout_weight="1" 
+  			android:layout_width="0dip"
+  			android:layout_marginLeft="5dip"
+  			>	
+			<TextView
+			    android:id="@+id/disk_name"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:ellipsize="end"
+			    android:singleLine="true"
+			    android:textStyle="bold" >
+
+			</TextView>
+			<TextView 
+				android:id="@+id/disk_info" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:ellipsize="end"
+				android:singleLine="true"
+				>
+			</TextView>
+		</LinearLayout>
+
+  		<ImageButton
+	        android:id="@+id/button_eject"
+	        android:layout_width="48dp"
+	        android:layout_height="48dp"
+	        android:background="@drawable/disk_eject"
+	        tools:ignore="ContentDescription" />
+
+	</LinearLayout>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/scan"
+          android:icon="@drawable/bluetooth"
+          android:title="@string/connect" />
+<!--
+    <item android:id="@+id/search"
+          android:icon="@drawable/ic_menu_search"
+          android:title="@string/search" />
+    <item android:id="@+id/favourites"
+          android:icon="@drawable/ic_menu_star"
+          android:title="@string/favourites" />
+-->
+    <item android:id="@+id/create_disk"
+          android:icon="@drawable/ic_menu_compose"
+          android:title="@string/create_disk" />
+    <item android:id="@+id/preferences"
+          android:icon="@drawable/ic_menu_manage"
+          android:title="@string/preferences" />
+    <item android:id="@+id/exit"
+          android:icon="@drawable/ic_menu_close_clear_cancel"
+          android:title="@string/exit" />
+</menu>

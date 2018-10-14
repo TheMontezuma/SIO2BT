@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="WRITE_DELAY"
+        android:title="@string/write_delay"
+        android:summary="@string/write_delay_summary"
+        android:entries="@array/delays"
+        android:entryValues="@array/delayValues"
+        android:defaultValue="10"
+        />
+    <CheckBoxPreference
+        android:key="BLINKING"
+        android:title="@string/blinking"
+        android:summary="@string/blinking_summary"
+        android:defaultValue="true" />
+    <CheckBoxPreference
+        android:key="SMART"
+        android:title="@string/smart"
+        android:summary="@string/smart_summary"
+        android:defaultValue="false" />
+    <CheckBoxPreference
+        android:key="NETWORKING"
+        android:title="@string/networking"
+        android:summary="@string/networking_summary"
+        android:defaultValue="false" />
+    <ListPreference
+        android:key="NET_OPEN_TIMEOUT"
+        android:title="@string/net_open_timeout"
+        android:summary="@string/net_open_timeout_summary"
+        android:entries="@array/netOpenTimeouts"
+        android:entryValues="@array/netOpenTimeoutValues"
+        android:defaultValue="5000"
+        />
+    <ListPreference
+        android:key="NET_READ_WRITE_TIMEOUT"
+        android:title="@string/net_read_write_timeout"
+        android:summary="@string/net_read_write_timeout_summary"
+        android:entries="@array/netReadWriteTimeouts"
+        android:entryValues="@array/netReadWriteTimeoutValues"
+        android:defaultValue="1000"
+        />
+</PreferenceScreen>
