@@ -5,7 +5,7 @@ SIO2BT project consist of hardware and software related to the wireless Bluetoot
 
 SIO2BT App requires a Bluetooth hardware extension for the ATARI (HC-06 Transceiver).
 The device name has to start with "SIO2BT" or with "ATARI".
-You can contact montezuma@abbuc.de to get more detials.
+You can also contact montezuma@abbuc.de to get more details.
 
 Documentation and software:
 https://drive.google.com/file/d/0B3-191R-U_S1blpUTFBsRW1iRUE
