@@ -12,7 +12,10 @@ public class Otherfile extends Disk
     private static final String TAG = "Otherfile";
     private static final boolean D = false;
 	
-	private static final int SECTOR_DATA_SIZE = 125;
+	private static final int SD_SECTOR_DATA_SIZE = 125;
+	private static final int DD_SECTOR_DATA_SIZE = 253;
+	private int mSectorDataSize = SD_SECTOR_DATA_SIZE;
+	private int mSectorSize = SINGLE_DENSITY_SECTOR_SIZE;
 	private int mSectorCount;
 	private File mFile;
 	private long mFileLength;
@@ -25,10 +28,16 @@ public class Otherfile extends Disk
 	{
 		mFile = new File(fileName);
 		mRandomAccessFile = new RandomAccessFile(mFile,"r");
-		mSectorCount = (int)((mRandomAccessFile.length()+SECTOR_DATA_SIZE-1)/SECTOR_DATA_SIZE);
+		mSectorCount = (int)((mRandomAccessFile.length()+SD_SECTOR_DATA_SIZE-1)/SD_SECTOR_DATA_SIZE);
 		if(mSectorCount > (0xFFFF-0x171))
 		{
-			throw new Exception();
+			mSectorDataSize = DD_SECTOR_DATA_SIZE;
+			mSectorSize = DOUBLE_DENSITY_SECTOR_SIZE;
+			mSectorCount = (int)((mRandomAccessFile.length()+DD_SECTOR_DATA_SIZE-1)/DD_SECTOR_DATA_SIZE);
+			if(mSectorCount > (0xFFFF-0x171))
+			{
+				throw new Exception();
+			}
 		}
 		mFileLength = mRandomAccessFile.length();
 		mFileName = mFile.getName().toUpperCase(Locale.getDefault()).getBytes("US-ASCII");
@@ -36,7 +45,7 @@ public class Otherfile extends Disk
 	
 	public DataBuffer readSector(int sector_no) throws IOException
 	{
-		DataBuffer buffer = new DataBuffer(SINGLE_DENSITY_SECTOR_SIZE);
+		DataBuffer buffer = new DataBuffer(mSectorSize);
 		buffer.clear(); // fills with zeros
 		byte[] data = buffer.getData();
 		
@@ -44,6 +53,10 @@ public class Otherfile extends Disk
 		{
 			if(sector_no == 0x001)
 			{
+				// 1-st sector is always SD
+				buffer = new DataBuffer(SINGLE_DENSITY_SECTOR_SIZE);
+				buffer.clear(); // fills with zeros
+				data = buffer.getData();
 				// valid boot header with RTS 
 				data[0] = (byte)0x00;
 				data[1] = (byte)0x01;
@@ -114,22 +127,22 @@ public class Otherfile extends Disk
 			}
 			else
 			{
-		    	int pos = (sector_no-SECTOR_OFFSET)*(SECTOR_DATA_SIZE);
+		    	int pos = (sector_no-SECTOR_OFFSET)*(mSectorDataSize);
 				mRandomAccessFile.seek(pos);
-				if(mFileLength-pos <= SECTOR_DATA_SIZE)
+				if(mFileLength-pos <= mSectorDataSize)
 				{
 					int last_datachunk_size = (int)(mFileLength-pos);
 					mRandomAccessFile.read(data, 0, last_datachunk_size);
-					data[125] = 0;
-					data[126] = 0;
-					data[127] = (byte)((last_datachunk_size & 0xFF));
+					data[mSectorDataSize+0] = 0;
+					data[mSectorDataSize+1] = 0;
+					data[mSectorDataSize+2] = (byte)((last_datachunk_size & 0xFF));
 				}
 				else
 				{
-					mRandomAccessFile.read(data, 0, SECTOR_DATA_SIZE);
-					data[125] = (byte)(((sector_no+1)>>8) & 0xFF); // BIG ENDIAN !
-					data[126] = (byte)((sector_no+1) & 0xFF);      // BIG ENDIAN !
-					data[127] = SECTOR_DATA_SIZE;
+					mRandomAccessFile.read(data, 0, mSectorDataSize);
+					data[mSectorDataSize+0] = (byte)(((sector_no+1)>>8) & 0xFF); // BIG ENDIAN !
+					data[mSectorDataSize+1] = (byte)((sector_no+1) & 0xFF);      // BIG ENDIAN !
+					data[mSectorDataSize+2] = (byte)mSectorDataSize;
 				}
 			}
 		}
@@ -172,12 +185,19 @@ public class Otherfile extends Disk
 
 	public int bytesPerSector()
 	{
-		return Disk.SINGLE_DENSITY_SECTOR_SIZE;
+		return mSectorSize;
 	}
 	
 	public int bytesPerSector(int sector_no)
 	{
-		return Disk.SINGLE_DENSITY_SECTOR_SIZE;
+		if(sector_no <= 3)
+		{
+			return Disk.SINGLE_DENSITY_SECTOR_SIZE;
+		}
+		else
+		{
+			return mSectorSize;
+		}
 	}
 
 	public boolean isReadOnly()
@@ -240,8 +260,8 @@ public class Otherfile extends Disk
 	    percom[3] = (byte)((SECTOR_OFFSET+mSectorCount) % 0x100); // sector per track ! BIG ENDIAN !
 	    percom[4] = (byte)(0); // single sided
 	    percom[5] = (byte)(0); // FM
-	    percom[6] = (byte)(0);                          // bytes per sector ! BIG ENDIAN !
-	    percom[7] = (byte)(SINGLE_DENSITY_SECTOR_SIZE); // bytes per sector ! BIG ENDIAN !
+	    percom[6] = (byte)(mSectorSize / 256); // ! BIG ENDIAN !
+	    percom[7] = (byte)(mSectorSize % 256); // ! BIG ENDIAN !
 	    percom[8] = (byte)(0xFF);
 	    return percom;
 	}
