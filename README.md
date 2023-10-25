@@ -1,6 +1,13 @@
 # SIO2BT
 SIO2BT Android App
 
+## IMPORTANT!!!
+The installation of the SIO2BT app is currently only possible via adb:
+```
+adb install --bypass-low-target-sdk-block  Sio2Bt.apk
+```
+---
+
 SIO2BT project consist of hardware and software related to the wireless Bluetooth communication between the 8-bit Atari computers and emulated SIO devices.
 
 SIO2BT App requires a Bluetooth hardware extension for the ATARI (HC-06 Transceiver).
